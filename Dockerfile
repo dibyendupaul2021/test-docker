@@ -1,7 +1,8 @@
-FROM ubuntu
+FROM amazonlinux
 MAINTAINER dibyendu
-RUN apt-get update
-RUN apt-get install apache2 -y
+RUN yum update -y
+RUN yum install httpd -y
 WORKDIR /tmp
-RUN service apache2 start
+RUN service httpd start
+RUN chkconfig httpd on
 EXPOSE 80
