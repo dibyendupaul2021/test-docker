@@ -1,8 +1,8 @@
-FROM amazonlinux
+FROM centos
 MAINTAINER dibyendu
 RUN yum update -y
 RUN yum install httpd -y
 WORKDIR /tmp
-RUN service httpd start
-RUN chkconfig httpd on
+CMD ["/usr/bin/run-httpd"]
 EXPOSE 80
+
